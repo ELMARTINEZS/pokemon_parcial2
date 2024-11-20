@@ -1,0 +1,17 @@
+<div class="card" style="width: 18rem;">
+  <div class="col-12">
+    <div class="card-body">
+      <h5 class="card-title">Id: {{pokemonDetail.id}}</h5>
+      <p class="card-text">Altura: {{pokemonDetail.height}}</p>
+      <p class="card-text">Peso: {{pokemonDetail.weight}}</p>
+      <p class="card-text">Habilidades:</p>
+      <ul>
+        <li *ngFor="let ability of pokemonDetail.abilities">{{ability.ability.name}}</li>
+      </ul>
+      <p class="card-text">Tipos:</p>
+      <ul>
+        <li *ngFor="let type of pokemonDetail.types">{{type.type.name}}</li>
+      </ul>
+    </div>
+  </div>
+</div>
