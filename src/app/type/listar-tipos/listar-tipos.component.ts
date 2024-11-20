@@ -10,9 +10,13 @@ import { ActivatedRoute } from '@angular/router';
 export class ListarTiposComponent implements OnInit {
   tipo!: string;
   pokemons: Array<PokemonDetailDto> = [];
-  constructor(private listaPokemon: Array<PokemonDetailDto>, private pokemonService : PokemonService, private route: ActivatedRoute ) { }
+  listaPokemon: Array<PokemonDetailDto> = [];
+  constructor( private pokemonService : PokemonService, private route: ActivatedRoute ) { }
 
   filtrarPorTipo(): void {
+    if (this.tipo == undefined){
+      this.tipo = this.route.snapshot.params['tipo'];
+    }
     this.listaPokemon =this.pokemons = this.pokemonService.getPokemons();
     this.pokemons = this.pokemons.filter(pokemon => {
       return pokemon.types.some(type => type.type.name == this.tipo);
@@ -20,9 +24,6 @@ export class ListarTiposComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (this.tipo == undefined){
-      this.tipo = this.route.snapshot.params['tipo'];
-    }
     this.filtrarPorTipo();
   }
 

@@ -10,7 +10,8 @@
       </ul>
       <p class="card-text">Tipos:</p>
       <ul>
-        <li *ngFor="let type of pokemonDetail.types"> <a routerLink="tipos/{{type.type.name}}"> {{type.type.name}}</a></li>
+        <li *ngFor="let type of pokemonDetail.types"> <a routerLink="tipos/{{type.type.name}}"> {{type.type.name}}</a> <router-outlet></router-outlet></li>
+        
       </ul>
     </div>
   </div>
